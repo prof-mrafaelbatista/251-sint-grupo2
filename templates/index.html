@@ -1,0 +1,64 @@
+{% extends "modelo.html" %}
+
+{% block conteudo %}
+  <div class="container mt-5">
+    <h1 class="mx-auto">print("Olá, mundo")</h1>
+
+    <div class="mx-auto" style="max-width: 700px; font-size: 1.1rem;">
+      <h2>Anote aí!</h2>
+
+      <h4>a. Estruturas de seleção</h4>
+      <p>
+        Estruturas de seleção permitem que um programa tome decisões e escolha entre diferentes caminhos de execução, dependendo de condições avaliadas durante a execução. Em Python, as principais estruturas de seleção são o <code>if</code>, <code>elif</code> e <code>else</code>. Por exemplo, você pode verificar se um número é positivo ou negativo e executar comandos diferentes para cada caso, garantindo maior controle do fluxo do programa.
+      </p>
+
+      <h4>b. Estruturas de repetição</h4>
+      <p>
+        Estruturas de repetição são usadas para executar um bloco de código várias vezes, enquanto uma condição for verdadeira ou por um número determinado de iterações. As duas estruturas principais são o <code>for</code> e o <code>while</code>. O <code>for</code> é útil para iterar sobre sequências como listas e strings, enquanto o <code>while</code> executa o código enquanto uma condição lógica permanecer verdadeira. São fundamentais para automatizar tarefas repetitivas.
+      </p>
+
+      <h4>c. Vetores e matrizes</h4>
+      <p>
+        Vetores e matrizes são estruturas de dados que armazenam coleções de elementos. Um vetor é uma lista unidimensional, ou seja, uma sequência linear de valores. Já uma matriz é uma estrutura bidimensional (ou mais dimensões), que pode ser representada em Python como uma lista de listas, onde cada elemento é acessado por índices múltiplos (linha e coluna). São amplamente usados para manipulação de dados numéricos, imagens, tabelas e mais.
+      </p>
+
+      <h4>d. Funções e procedimentos</h4>
+      <p>
+        Funções e procedimentos são blocos de código que podem ser reutilizados ao longo do programa para realizar tarefas específicas. Em Python, tudo são funções, mas podemos pensar que procedimentos são funções que não retornam valor (ou retornam None). Funções recebem parâmetros, executam operações e podem retornar resultados, facilitando a organização e modularidade do código, além de evitar repetição.
+      </p>
+
+      <h4>e. Tratamento de exceção em Python</h4>
+      <p>
+        O tratamento de exceções permite que programas lidem com erros ou situações inesperadas durante a execução, sem parar abruptamente. Em Python, utilizamos as palavras-chave <code>try</code>, <code>except</code>, <code>else</code> e <code>finally</code> para capturar e tratar exceções. Isso garante maior robustez e controle, permitindo que o código continue funcionando ou execute ações específicas quando um erro ocorre.
+      </p>
+    </div>
+
+
+
+    <div class="text-center">
+<a href="{{ url_for('quiz_page') }}" class="btn btn-primary mt-4">Próxima página</a>    </div>
+  </div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio do formulário padrão
+
+      let score = 0;
+      const totalQuestions = 5; // Número total de perguntas
+
+      // Array com os nomes dos grupos de rádio (name="q1", name="q2", etc.)
+      const questions = ['q1', 'q2', 'q3', 'q4', 'q5'];
+
+      questions.forEach(questionName => {
+        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+        if (selectedOption && selectedOption.dataset.correct === 'true') {
+          score++;
+        }
+      });
+
+      const resultDiv = document.getElementById('quizResult');
+      resultDiv.innerHTML = `Você acertou ${score} de ${totalQuestions} perguntas!`;
+      resultDiv.style.display = 'block'; // Mostra o resultado
+    });
+  </script>
+{% endblock %}
