@@ -1,3 +1,5 @@
+Grupo: Samantha Hellen, Carlos Henrique, Giovanni Monteiro, Marcelo Pereira.
+
 PyCaderno: Seu Caderno Interativo de Python com Quiz e Assistente Gemini
 
 Bem-vindo ao PyCaderno! Este é um projeto de aplicação web educacional desenvolvido com Python (Flask), HTML, CSS e JavaScript. Ele foi feito para ajudar estudantes de Python a revisar conceitos fundamentais e testar seus conhecimentos de forma interativa. Além disso, o PyCaderno conta com um assistente integrado à API do Google Gemini para responder às suas dúvidas de programação em tempo real!
